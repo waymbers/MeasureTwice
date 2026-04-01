@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+  }
+}
+
+.blueprint-bg {
+  background-color: #0a1628;
+  background-image:
+    linear-gradient(rgba(30, 100, 200, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 100, 200, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.blueprint-paper {
+  background-color: #f0f4ff;
+  background-image:
+    linear-gradient(rgba(30, 100, 200, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 100, 200, 0.07) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.foreman-warning {
+  background: linear-gradient(135deg, #ff4500, #ff6b35);
+  border-left: 6px solid #ff0000;
+  animation: pulse-warning 2s ease-in-out infinite;
+}
+
+@keyframes pulse-warning {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 69, 0, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(255, 69, 0, 0); }
+}
+
+.pro-tip-box {
+  background: linear-gradient(135deg, #1a3a5c, #1e4d7a);
+  border: 2px solid #4a9eff;
+  border-left: 6px solid #4a9eff;
+}
+
+.measurement-text {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.progress-bar-fill {
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chat-bubble-in {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+.chat-bubble-out {
+  animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.typing-indicator span {
+  animation: typing 1.4s infinite;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4a9eff;
+  margin: 0 2px;
+}
+
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typing {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-8px); opacity: 1; }
+}
