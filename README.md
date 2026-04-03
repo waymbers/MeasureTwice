@@ -31,12 +31,18 @@ npm run dev
 
 Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-## Build
+## Build & Deployment Preview
+
+To build the app for production and preview the deployment locally:
 
 ```bash
 npm run build
 npm run preview
 ```
+
+`npm run build` compiles and bundles the app into the `dist/` folder. `npm run preview` then starts a local server that serves that production build so you can verify it before deploying.
+
+Open [http://localhost:4173](http://localhost:4173) in your browser to view the deployment preview.
 
 ## Disclaimer
 
