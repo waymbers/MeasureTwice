@@ -22,6 +22,22 @@ A single-page React application that generates professional construction guides 
 - **Lucide React** for iconography
 - **jsPDF** + **html2canvas** for PDF export
 
+## Live Demo
+
+**[https://waymbers.github.io/MeasureTwice/](https://waymbers.github.io/MeasureTwice/)**
+
+The app is automatically built and deployed to GitHub Pages on every push to `main` — no commands required. Just open the URL above.
+
+### One-Time GitHub Pages Setup (repo owner only)
+
+If the link above isn't live yet, enable GitHub Pages once in the repo settings:
+
+1. Go to **Settings → Pages** in the GitHub repository.
+2. Under **Source**, select **GitHub Actions**.
+3. Save. The next push to `main` will trigger the deploy workflow and publish the site.
+
+---
+
 ## Getting Started
 
 ```bash
