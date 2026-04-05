@@ -57,21 +57,69 @@
 }
 
 .chat-bubble-in {
-  animation: slideInLeft 0.3s ease-out;
+  animation: waveBubbleIn 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  position: relative;
+  overflow: hidden;
 }
 
 .chat-bubble-out {
-  animation: slideInRight 0.3s ease-out;
+  animation: waveBubbleOut 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
+@keyframes waveBubbleIn {
+  0%   { opacity: 0; transform: translateX(-18px) translateY(6px); }
+  38%  { opacity: 1; transform: translateX(5px) translateY(-3px); }
+  58%  { transform: translateX(-2px) translateY(1.5px); }
+  78%  { transform: translateX(1px) translateY(-0.5px); }
+  100% { opacity: 1; transform: translateX(0) translateY(0); }
 }
 
-@keyframes slideInRight {
-  from { opacity: 0; transform: translateX(20px); }
-  to { opacity: 1; transform: translateX(0); }
+@keyframes waveBubbleOut {
+  0%   { opacity: 0; transform: translateX(18px) translateY(6px); }
+  38%  { opacity: 1; transform: translateX(-5px) translateY(-3px); }
+  58%  { transform: translateX(2px) translateY(1.5px); }
+  78%  { transform: translateX(-1px) translateY(-0.5px); }
+  100% { opacity: 1; transform: translateX(0) translateY(0); }
+}
+
+/* Wave shimmer that sweeps across newly appeared messages */
+.wave-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 15%,
+    rgba(74, 158, 255, 0.18) 38%,
+    rgba(110, 231, 183, 0.24) 50%,
+    rgba(74, 158, 255, 0.18) 62%,
+    transparent 85%
+  );
+  background-size: 250% 100%;
+  background-position: -150% 0;
+  animation: waveShimmerSweep 1.3s ease-out 0.05s both;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.wave-shimmer-user {
+  background: linear-gradient(
+    110deg,
+    transparent 15%,
+    rgba(255, 255, 255, 0.08) 38%,
+    rgba(255, 255, 255, 0.16) 50%,
+    rgba(255, 255, 255, 0.08) 62%,
+    transparent 85%
+  );
+  background-size: 250% 100%;
+  background-position: -150% 0;
+}
+
+@keyframes waveShimmerSweep {
+  0%   { background-position: -150% 0; opacity: 1; }
+  75%  { opacity: 0.9; }
+  100% { background-position: 210% 0; opacity: 0; }
 }
 
 .typing-indicator span {
